@@ -14,20 +14,22 @@
         body {
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
             line-height: 1.6;
-            color: #333;
-            background-color: #f8f9fa;
+            color: #e0e0e0;
+            background: linear-gradient(135deg, #0f2027 0%, #203a43 50%, #2c5364 100%);
+            min-height: 100vh;
         }
 
         .container {
-            max-width: 1200px;
+            max-width: 1400px;
             margin: 0 auto;
             padding: 0 20px;
         }
 
         /* Header */
         .header {
-            background: white;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            background: rgba(15, 32, 39, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
             position: sticky;
             top: 0;
             z-index: 100;
@@ -41,132 +43,347 @@
         }
 
         .logo {
-            font-size: 1.5rem;
-            font-weight: 600;
-            color: #333;
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: #4ade80;
             text-decoration: none;
+            text-shadow: 0 0 10px rgba(74, 222, 128, 0.3);
         }
 
         .nav-links {
             display: flex;
             list-style: none;
-            gap: 2rem;
+            gap: 2.5rem;
         }
 
         .nav-links a {
             text-decoration: none;
-            color: #666;
+            color: #d1d5db;
             font-weight: 500;
-            transition: color 0.3s;
+            transition: all 0.3s ease;
+            position: relative;
+            padding: 0.5rem 0;
         }
 
         .nav-links a:hover,
         .nav-links a.active {
-            color: #007bff;
+            color: #4ade80;
+            text-shadow: 0 0 8px rgba(74, 222, 128, 0.5);
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: linear-gradient(90deg, #4ade80, #22d3ee);
+            transition: width 0.3s ease;
+        }
+
+        .nav-links a:hover::after,
+        .nav-links a.active::after {
+            width: 100%;
         }
 
         .main-content {
             padding: 3rem 0;
         }
 
-        .content-section {
-            background: white;
+        .hero-section {
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 4rem;
+            align-items: center;
+            margin-bottom: 4rem;
+            padding: 3rem 2rem;
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+        }
+
+        .profile-card {
+            text-align: center;
             padding: 2rem;
-            border-radius: 8px;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-            margin-bottom: 2rem;
+            background: rgba(15, 32, 39, 0.8);
+            border-radius: 20px;
+            border: 1px solid rgba(74, 222, 128, 0.2);
+            box-shadow: 0 0 30px rgba(74, 222, 128, 0.1);
         }
 
-        .section-title {
-            font-size: 1.8rem;
-            font-weight: 600;
+        .profile-image {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            border: 4px solid #4ade80;
+            box-shadow: 0 0 30px rgba(74, 222, 128, 0.4);
             margin-bottom: 1.5rem;
-            color: #333;
-            border-bottom: 2px solid #007bff;
-            padding-bottom: 0.5rem;
+            object-fit: cover;
         }
 
-        .intro-text {
+        .profile-name {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #4ade80;
+            margin-bottom: 0.5rem;
+            text-shadow: 0 0 10px rgba(74, 222, 128, 0.3);
+        }
+
+        .profile-title {
             font-size: 1.1rem;
-            line-height: 1.7;
-            color: #555;
-            margin-bottom: 1rem;
-        }
-
-        .highlight-link {
-            color: #007bff;
-            text-decoration: none;
+            color: #22d3ee;
+            margin-bottom: 1.5rem;
             font-weight: 500;
         }
 
+        .profile-institution {
+            font-size: 0.95rem;
+            color: #a0a0a0;
+            margin-bottom: 2rem;
+        }
+
+        .about-content h2 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: #ffffff;
+            margin-bottom: 2rem;
+            text-shadow: 0 0 15px rgba(255, 255, 255, 0.2);
+        }
+
+        .intro-text {
+            font-size: 1.2rem;
+            line-height: 1.8;
+            color: #d1d5db;
+            margin-bottom: 1.5rem;
+        }
+
+        .highlight-link {
+            color: #4ade80;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
         .highlight-link:hover {
-            text-decoration: underline;
+            color: #22d3ee;
+            text-shadow: 0 0 8px rgba(34, 211, 238, 0.5);
         }
 
         .social-links {
             display: flex;
             gap: 1rem;
-            margin-top: 1.5rem;
+            justify-content: center;
+            margin-top: 2rem;
         }
 
         .social-link {
             display: inline-flex;
             align-items: center;
             gap: 0.5rem;
-            padding: 0.5rem 1rem;
-            background: #f8f9fa;
-            border: 1px solid #dee2e6;
-            border-radius: 5px;
+            padding: 0.75rem 1.25rem;
+            background: rgba(74, 222, 128, 0.1);
+            border: 1px solid rgba(74, 222, 128, 0.3);
+            border-radius: 12px;
             text-decoration: none;
-            color: #666;
-            transition: all 0.3s;
+            color: #4ade80;
+            transition: all 0.3s ease;
+            font-weight: 500;
         }
 
         .social-link:hover {
-            background: #007bff;
-            color: white;
-            border-color: #007bff;
+            background: rgba(74, 222, 128, 0.2);
+            border-color: #4ade80;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(74, 222, 128, 0.3);
+        }
+
+        .content-section {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            padding: 3rem 2rem;
+            border-radius: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+            margin-bottom: 3rem;
+        }
+
+        .section-title {
+            font-size: 2.2rem;
+            font-weight: 700;
+            margin-bottom: 2rem;
+            color: #ffffff;
+            text-align: center;
+            position: relative;
+            text-shadow: 0 0 15px rgba(255, 255, 255, 0.2);
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 3px;
+            background: linear-gradient(90deg, #4ade80, #22d3ee);
+            border-radius: 2px;
+        }
+
+        .interests-education-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            margin-top: 2rem;
+        }
+
+        .interests-section h3,
+        .education-section h3 {
+            font-size: 1.6rem;
+            font-weight: 600;
+            color: #4ade80;
+            margin-bottom: 1.5rem;
+            text-shadow: 0 0 8px rgba(74, 222, 128, 0.3);
         }
 
         .research-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 1.5rem;
-            margin-top: 1.5rem;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
         }
 
         .research-card {
-            background: #f8f9fa;
-            padding: 1.5rem;
-            border-radius: 8px;
-            border-left: 4px solid #007bff;
+            background: rgba(15, 32, 39, 0.6);
+            padding: 2rem;
+            border-radius: 15px;
+            border: 1px solid rgba(74, 222, 128, 0.2);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .research-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background: linear-gradient(90deg, #4ade80, #22d3ee);
+        }
+
+        .research-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(74, 222, 128, 0.2);
+            border-color: #4ade80;
         }
 
         .research-card h3 {
-            font-size: 1.2rem;
-            margin-bottom: 0.5rem;
-            color: #333;
+            font-size: 1.3rem;
+            margin-bottom: 1rem;
+            color: #4ade80;
+            font-weight: 600;
         }
 
         .research-card p {
-            color: #666;
+            color: #d1d5db;
+            font-size: 1rem;
+            line-height: 1.6;
+        }
+
+        .education-item {
+            background: rgba(15, 32, 39, 0.6);
+            padding: 1.5rem;
+            border-radius: 12px;
+            border-left: 4px solid #22d3ee;
+            margin-bottom: 1.5rem;
+            transition: all 0.3s ease;
+        }
+
+        .education-item:hover {
+            transform: translateX(5px);
+            box-shadow: 0 8px 25px rgba(34, 211, 238, 0.2);
+        }
+
+        .education-degree {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: #22d3ee;
+            margin-bottom: 0.5rem;
+        }
+
+        .education-institution {
+            color: #4ade80;
+            font-weight: 500;
+            margin-bottom: 0.3rem;
+        }
+
+        .education-details {
+            color: #a0a0a0;
             font-size: 0.95rem;
         }
 
-        .contact-info {
+        .contact-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 1.5rem;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
         }
 
         .contact-item {
             display: flex;
             align-items: center;
-            gap: 0.5rem;
+            gap: 1rem;
+            padding: 1.5rem;
+            background: rgba(15, 32, 39, 0.6);
+            border-radius: 12px;
+            border: 1px solid rgba(74, 222, 128, 0.2);
+            transition: all 0.3s ease;
         }
 
-        .contact-item strong {
-            color: #333;
+        .contact-item:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(74, 222, 128, 0.2);
+        }
+
+        .contact-icon {
+            font-size: 1.5rem;
+            color: #4ade80;
+        }
+
+        .contact-info strong {
+            color: #22d3ee;
+            display: block;
+            margin-bottom: 0.3rem;
+        }
+
+        .contact-info span {
+            color: #d1d5db;
+        }
+
+        .footer {
+            background: rgba(15, 32, 39, 0.9);
+            color: #d1d5db;
+            text-align: center;
+            padding: 2rem 0;
+            margin-top: 4rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        @media (max-width: 1024px) {
+            .hero-section {
+                grid-template-columns: 1fr;
+                text-align: center;
+                gap: 2rem;
+            }
+
+            .interests-education-grid {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
         }
 
         @media (max-width: 768px) {
@@ -178,17 +395,21 @@
                 font-size: 0.9rem;
             }
 
-            .profile-info h1 {
+            .profile-name {
+                font-size: 1.7rem;
+            }
+
+            .about-content h2 {
                 font-size: 2rem;
             }
-        }
 
-        .footer {
-            background: #333;
-            color: white;
-            text-align: center;
-            padding: 2rem 0;
-            margin-top: 3rem;
+            .research-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .contact-grid {
+                grid-template-columns: 1fr;
+            }
         }
     </style>
 </head>
@@ -198,8 +419,9 @@
             <nav class="nav">
                 <a href="#" class="logo">Manzoor Hussain</a>
                 <ul class="nav-links">
-                    <li><a href="#home" class="active">Home</a></li>
+                    <li><a href="#home" class="active">Bio</a></li>
                     <li><a href="#research">Projects</a></li>
+                    <li><a href="#contact">Contact</a></li>
                     <li><a href="#">CV</a></li>
                 </ul>
             </nav>
@@ -208,25 +430,14 @@
 
     <main class="main-content">
         <div class="container">
-
-            <!-- Home Section -->
-            <section id="home" class="content-section">
-                <div style="text-align: center;">
-                    <img src="images/profile.jpg" alt="Manzoor Hussain" style="width: 180px; border-radius: 50%; border: 3px solid #004080; margin-bottom: 1rem;">
-                </div>
-                <div class="profile-info">
-                    <h2>Welcome!</h2>
-                    <p class="intro-text">
-                        I am currently pursuing an M.Tech in Signal Processing at the 
-                        <a href="https://iisc.ac.in/" class="highlight-link" target="_blank">Indian Institute of Science, Bangalore</a>.
-                        My M.Tech project focuses on <strong>Articulatory Analysis and Modeling of Speech Production in real-time MRI videos</strong>,
-                        which I am doing at the <a href="https://spire.ee.iisc.ac.in/index.php" class="highlight-link" target="_blank">Spire Lab</a>
-                        under the guidance of <a href="https://ee.iisc.ac.in/~prasantg/" class="highlight-link" target="_blank">Prof. Prasanta Kumar Ghosh</a>.
-                    </p>
-                    <p class="intro-text">
-                        I completed my B.Tech in Electrical Engineering from the 
-                        <a href="https://www.ietlucknow.ac.in/" class="highlight-link" target="_blank">Institute of Engineering and Technology, Lucknow</a>.
-                    </p>
+            <!-- Hero Section -->
+            <section id="home" class="hero-section">
+                <div class="profile-card">
+                    <img src="images/profile.jpg" alt="Manzoor Hussain" class="profile-image">
+                    <h1 class="profile-name">Manzoor Hussain</h1>
+                    <p class="profile-title">M.Tech Student</p>
+                    <p class="profile-institution">Signal Processing<br>Indian Institute of Science</p>
+                    
                     <div class="social-links">
                         <a href="mailto:aseebi1236@gmail.com" class="social-link">
                             <span>📧</span> Email
@@ -239,27 +450,65 @@
                         </a>
                     </div>
                 </div>
+
+                <div class="about-content">
+                    <h2>About Me</h2>
+                    <p class="intro-text">
+                        I am currently pursuing an M.Tech in Signal Processing at the 
+                        <a href="https://iisc.ac.in/" class="highlight-link" target="_blank">Indian Institute of Science, Bangalore</a>.
+                        My M.Tech project focuses on <strong>Articulatory Analysis and Modeling of Speech Production in real-time MRI videos</strong>,
+                        which I am doing at the <a href="https://spire.ee.iisc.ac.in/index.php" class="highlight-link" target="_blank">Spire Lab</a>
+                        under the guidance of <a href="https://ee.iisc.ac.in/~prasantg/" class="highlight-link" target="_blank">Prof. Prasanta Kumar Ghosh</a>.
+                    </p>
+                    <p class="intro-text">
+                        I completed my B.Tech in Electrical Engineering from the 
+                        <a href="https://www.ietlucknow.ac.in/" class="highlight-link" target="_blank">Institute of Engineering and Technology, Lucknow</a>.
+                    </p>
+                </div>
             </section>
 
-            <!-- Research -->
-            <section id="research" class="content-section">
-                <h2 class="section-title">Research Interests</h2>
-                <div class="research-grid">
-                    <div class="research-card">
-                        <h3>Image Processing</h3>
-                        <p>Techniques and applications involving image enhancement, denoising, segmentation and analysis.</p>
+            <!-- Interests and Education -->
+            <section class="content-section">
+                <div class="interests-education-grid">
+                    <div class="interests-section">
+                        <h3>Interests</h3>
+                        <div class="research-grid">
+                            <div class="research-card">
+                                <h3>Image Processing</h3>
+                                <p>Techniques and applications involving image enhancement, denoising, segmentation and analysis.</p>
+                            </div>
+                            <div class="research-card">
+                                <h3>Signal Processing</h3>
+                                <p>Analysis and modeling of signals, particularly speech and biomedical signals.</p>
+                            </div>
+                            <div class="research-card">
+                                <h3>Machine Learning</h3>
+                                <p>Statistical learning methods for pattern recognition and intelligent systems.</p>
+                            </div>
+                            <div class="research-card">
+                                <h3>Deep Learning</h3>
+                                <p>Neural network architectures for speech, image, and time-series tasks.</p>
+                            </div>
+                        </div>
                     </div>
-                    <div class="research-card">
-                        <h3>Signal Processing</h3>
-                        <p>Analysis and modeling of signals, particularly speech and biomedical signals.</p>
-                    </div>
-                    <div class="research-card">
-                        <h3>Machine Learning</h3>
-                        <p>Statistical learning methods for pattern recognition and intelligent systems.</p>
-                    </div>
-                    <div class="research-card">
-                        <h3>Deep Learning</h3>
-                        <p>Neural network architectures for speech, image, and time-series tasks.</p>
+
+                    <div class="education-section">
+                        <h3>Education</h3>
+                        <div class="education-item">
+                            <div class="education-degree">M.Tech Signal Processing</div>
+                            <div class="education-institution">Indian Institute of Science, Bangalore</div>
+                            <div class="education-details">
+                                Thesis: Articulatory Analysis and Modeling of Speech Production in real-time MRI videos<br>
+                                Advisor: Prof. Prasanta Kumar Ghosh
+                            </div>
+                        </div>
+                        <div class="education-item">
+                            <div class="education-degree">B.Tech Electrical Engineering</div>
+                            <div class="education-institution">Institute of Engineering and Technology, Lucknow</div>
+                            <div class="education-details">
+                                Focus on signal processing and use of Machine Learning in Electrical systems.
+                            </div>
+                        </div>
                     </div>
                 </div>
             </section>
@@ -267,15 +516,27 @@
             <!-- Contact -->
             <section id="contact" class="content-section">
                 <h2 class="section-title">Contact Information</h2>
-                <div class="contact-info">
+                <div class="contact-grid">
                     <div class="contact-item">
-                        <strong>Email:</strong> manzoorh@iisc.ac.in
+                        <div class="contact-icon">📧</div>
+                        <div class="contact-info">
+                            <strong>Email</strong>
+                            <span>manzoorh@iisc.ac.in</span>
+                        </div>
                     </div>
                     <div class="contact-item">
-                        <strong>Phone:</strong> +91-9906762970
+                        <div class="contact-icon">📱</div>
+                        <div class="contact-info">
+                            <strong>Phone</strong>
+                            <span>+91-9906762970</span>
+                        </div>
                     </div>
                     <div class="contact-item">
-                        <strong>Address:</strong> Department of Electrical Engineering, IISc Bangalore, India
+                        <div class="contact-icon">📍</div>
+                        <div class="contact-info">
+                            <strong>Address</strong>
+                            <span>Spire Lab, Department of Electrical Engineering<br>IISc Bangalore, India</span>
+                        </div>
                     </div>
                 </div>
             </section>
@@ -320,6 +581,12 @@
                     link.classList.add('active');
                 }
             });
+        });
+
+        // Add floating animation to research cards
+        const cards = document.querySelectorAll('.research-card');
+        cards.forEach((card, index) => {
+            card.style.animationDelay = `${index * 0.2}s`;
         });
     </script>
 </body>
